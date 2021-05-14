@@ -1,0 +1,44 @@
+<h1>
+    <ng-container *ngIf="mode=='add'">Add Game</ng-container>
+    <ng-container *ngIf="mode=='edit'">Edit Game</ng-container>
+</h1>
+
+<p *ngIf="mode=='add'">Add a new game using this simple form.</p>
+<p *ngIf="mode=='edit'">Edit a game using this simple form.</p>
+
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="16px">
+
+    <mat-form-field hintLabel="Max 30 characters" appearance="fill">
+        <mat-label>The name of the game</mat-label>
+        <input matInput #inputName maxlength="30" placeholder="E.g. Giana Sisters" formControlName="name" required />
+        <mat-hint align="end">{{inputName.value?.length || 0}}/30</mat-hint>
+        <mat-error *ngIf="gameForm.controls.name.invalid">Please correct this field!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Genre of the game</mat-label>
+        <input matInput placeholder="E.g. Arcade" formControlName="genre" required />
+        <mat-hint>Common genres are Action, Arcade, Puzzle, Sports, Strategy ...</mat-hint>
+        <mat-error *ngIf="gameForm.controls.genre.invalid">Please correct this field!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Release of the game</mat-label>
+        <input matInput maxlength="30" placeholder="1986-05-06" formControlName="releaseDate" required />
+        <mat-hint>Date format YYYY-MM-DD</mat-hint>
+        <mat-error *ngIf="gameForm.controls.releaseDate.invalid">Please correct this field!</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 500 characters" appearance="fill">
+        <mat-label>Short description</mat-label>
+        <textarea matInput #inputDescription maxlength="500" formControlName="description" required></textarea>
+        <mat-hint align="end">{{inputDescription.value?.length || 0}}/500</mat-hint>
+        <mat-error *ngIf="gameForm.controls.description.invalid">Please correct this field!</mat-error>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutGap="16px">
+        <button mat-raised-button type="submit" color="primary" [disabled]="gameForm.invalid">Save</button>
+        <a mat-raised-button routerLink=".." color="warn">Abort</a>
+    </div>
+
+</form>

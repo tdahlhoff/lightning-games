@@ -1,0 +1,15 @@
+<h1>Homepage</h1>
+<p>homepage works!</p>
+<ng-container *ngIf="featuredGames$ | async as featuredGames">
+    <mat-card *ngFor="let game of featuredGames">
+        <mat-card-title>{{game.name}}</mat-card-title>
+        <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+        <mat-card-content>
+            <div fxLayout="row">
+                <div>Released</div>
+                <div>{{game.releaseDate}}</div>
+            </div>
+            <p>{{game.description}}</p>
+        </mat-card-content>
+    </mat-card>
+</ng-container>

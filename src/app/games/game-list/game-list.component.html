@@ -1,0 +1,21 @@
+<h1 fxLayout="row wrap">
+    <span fxFlex>Your list of games</span>
+    <button fxFlex="nogrow" mat-fab color="primary" routerLink="create" matTooltip="Add a new Game">
+        <mat-icon>add</mat-icon>
+    </button>
+</h1>
+<ng-container *ngIf="games$ | async as games">
+    <div fxLayout="column" fxLayoutGap="16px">
+        <mat-card *ngFor="let game of games">
+            <mat-card-title>{{game.name}}</mat-card-title>
+            <mat-card-subtitle>{{game.genre}}</mat-card-subtitle>
+            <mat-card-content>
+                <p>{{game.description}}</p>
+            </mat-card-content>
+            <mat-card-actions fxLayout="row" fxLayoutGap="8px">
+                <a routerLink="{{game.gameId}}/edit" mat-flat-button color="primary">Edit</a>
+                <a mat-flat-button color="warn" (click)="removeGame(game)">Delete</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</ng-container>
