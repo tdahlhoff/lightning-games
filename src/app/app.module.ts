@@ -13,7 +13,7 @@ import { GamesComponent } from './games/games.component'
 import { NgxsModule } from '@ngxs/store';
 import { GamesState } from './store/games/games.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
