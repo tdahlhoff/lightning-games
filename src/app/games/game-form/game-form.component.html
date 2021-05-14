@@ -36,7 +36,7 @@
         <mat-error *ngIf="gameForm.controls.description.invalid">Please correct this field!</mat-error>
     </mat-form-field>
 
-    <div fxLayout="row" fxLayoutGap="16px">
+    <div fxLayout="row" fxLayoutGap="8px">
         <button mat-raised-button type="submit" color="primary" [disabled]="gameForm.invalid">Save</button>
         <a mat-raised-button routerLink="/games" color="warn">Abort</a>
     </div>

@@ -12,7 +12,7 @@
             <mat-card-content>
                 <p>{{game.description}}</p>
             </mat-card-content>
-            <mat-card-actions fxLayout="row" fxLayoutGap="8px">
+            <mat-card-actions fxLayout="row">
                 <a routerLink="{{game.gameId}}/edit" mat-raised-button color="primary">Edit</a>
                 <button mat-raised-button color="warn" (click)="deleteGame(game)">Delete</button>
             </mat-card-actions>
