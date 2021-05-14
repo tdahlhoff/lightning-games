@@ -25,7 +25,7 @@ export namespace GamesActions {
     export class Delete {
         public static readonly type = '[Games] Delete';
 
-        constructor(public command: GamesCommands.Remove) {
+        constructor(public command: GamesCommands.Delete) {
         }
     }
 }

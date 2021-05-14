@@ -21,7 +21,7 @@ export class GameListComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    removeGame(game: Game) {
-        this.store.dispatch(new GamesActions.Delete(new GamesCommands.Remove(game.gameId))).subscribe();
+    deleteGame(game: Game) {
+        this.store.dispatch(new GamesActions.Delete(new GamesCommands.Delete(game.gameId))).subscribe();
     }
 }

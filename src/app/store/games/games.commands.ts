@@ -9,7 +9,7 @@ export namespace GamesCommands {
             public releaseDate: string) {
         }
     }
-    export class Remove {
+    export class Delete {
         constructor(public gameId: string) {
         }
     }
