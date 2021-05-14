@@ -82,7 +82,7 @@ export class GamesState {
                 creationDate: moment().format(),
                 releaseDate: command.releaseDate,
                 description: command.description,
-                isFeatured: command.isFeatured
+                isFeatured: false
             }
         }));
     }
@@ -95,8 +95,7 @@ export class GamesState {
                 name: command.name,
                 genre: command.genre,
                 releaseDate: command.releaseDate,
-                description: command.description,
-                isFeatured: command.isFeatured
+                description: command.description
             }
         }));
     }

@@ -43,12 +43,12 @@ export class GameFormComponent implements OnInit {
             if (!this.selectedGame) {
                 const command = new GamesCommands.Create(this.gameForm.controls.name.value,
                     this.gameForm.controls.genre.value, this.gameForm.controls.description.value,
-                    this.gameForm.controls.releaseDate.value, false);
+                    this.gameForm.controls.releaseDate.value);
                 action = new GamesActions.Create(command);
             } else {
                 const command = new GamesCommands.Edit(this.selectedGame.gameId, this.gameForm.controls.name.value,
                     this.gameForm.controls.genre.value, this.gameForm.controls.description.value,
-                    this.gameForm.controls.releaseDate.value, false);
+                    this.gameForm.controls.releaseDate.value);
                 action = new GamesActions.Edit(command);
             }
 
