@@ -13,4 +13,9 @@ export namespace GamesCommands {
         constructor(public gameId: string) {
         }
     }
+
+    export class SetFeatured {
+        constructor(public gameId: string) {
+        }
+    }
 }

@@ -24,4 +24,8 @@ export class GameListComponent implements OnInit {
     deleteGame(game: Game) {
         this.store.dispatch(new GamesActions.Delete(new GamesCommands.Delete(game.gameId))).subscribe();
     }
+
+    setFeatured(game: Game) {
+        this.store.dispatch(new GamesActions.SetFeatured(new GamesCommands.SetFeatured(game.gameId))).subscribe();
+    }
 }

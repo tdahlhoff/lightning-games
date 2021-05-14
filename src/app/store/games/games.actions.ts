@@ -28,5 +28,12 @@ export namespace GamesActions {
         constructor(public command: GamesCommands.Delete) {
         }
     }
+
+    export class SetFeatured {
+        public static readonly type = '[Games] Set Featured';
+
+        constructor(public command: GamesCommands.SetFeatured) {
+        }
+    }
 }
 

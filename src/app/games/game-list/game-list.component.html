@@ -12,9 +12,10 @@
             <mat-card-content>
                 <p>{{game.description}}</p>
             </mat-card-content>
-            <mat-card-actions fxLayout="row">
-                <a routerLink="{{game.gameId}}/edit" mat-raised-button color="primary">Edit</a>
-                <button mat-raised-button color="warn" (click)="deleteGame(game)">Delete</button>
+            <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+                <a routerLink="{{game.gameId}}/edit" mat-icon-button color="primary"><mat-icon>edit</mat-icon></a>
+                <button mat-icon-button color="accent" (click)="setFeatured(game)"><mat-icon>star</mat-icon></button>
+                <button mat-icon-button color="warn" (click)="deleteGame(game)"><mat-icon>delete</mat-icon></button>
             </mat-card-actions>
         </mat-card>
     </div>

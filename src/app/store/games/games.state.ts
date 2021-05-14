@@ -110,4 +110,15 @@ export class GamesState {
             delete draft.games[command.gameId];
         }));
     }
+
+    @Action(GamesActions.SetFeatured)
+    public setFeatured(ctx: StateContext<GamesStateModel>, {command}: GamesActions.SetFeatured) {
+        const state = ctx.getState();
+        if (!state.games[command.gameId]) {
+            throw new Error(`Game with id ${command.gameId} does not exist!`);
+        }
+        ctx.setState(produce((draft) => {
+            draft.games[command.gameId].isFeatured = true;
+        }));
+    }
 }
