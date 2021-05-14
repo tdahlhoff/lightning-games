@@ -57,7 +57,7 @@ export class GamesState {
             if (!draft.games['f5358325-7c2e-460e-b020-8e688368537e']) {
                 draft.games['f5358325-7c2e-460e-b020-8e688368537e'] = {
                     gameId: 'f5358325-7c2e-460e-b020-8e688368537e',
-                    name: 'Pac-Man',
+                    name: 'Puck-Man',
                     genre: 'Maze',
                     creationDate: moment().format(),
                     releaseDate: '1980-06-01',

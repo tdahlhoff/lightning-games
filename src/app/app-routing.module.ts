@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { GameListComponent } from './games/game-list/game-list.component';
-import { GameInfoComponent } from './games/game-info/game-info.component';
 import { GameFormComponent } from './games/game-form/game-form.component';
 import { GamesComponent } from './games/games.component';
 
@@ -27,11 +26,7 @@ const routes: Routes = [
                 component: GameFormComponent
             },
             {
-                path: ':gameId/info',
-                component: GameInfoComponent
-            },
-            {
-                path: ':gameId/Edit',
+                path: ':gameId/edit',
                 component: GameFormComponent
             }
         ]

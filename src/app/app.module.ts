@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomepageComponent } from './homepage/homepage.component';
 import { GameListComponent } from './games/game-list/game-list.component';
-import { GameInfoComponent } from './games/game-info/game-info.component';
 import { GameFormComponent } from './games/game-form/game-form.component';
 import { GamesComponent } from './games/games.component'
 import { NgxsModule } from '@ngxs/store';
@@ -22,7 +21,6 @@ import { ReactiveFormsModule } from '@angular/forms';
         AppComponent,
         HomepageComponent,
         GameListComponent,
-        GameInfoComponent,
         GameFormComponent,
         GamesComponent
     ],
