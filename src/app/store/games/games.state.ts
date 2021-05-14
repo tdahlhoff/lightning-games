@@ -37,19 +37,20 @@ export class GamesState {
         });
     }
 
-    @Action(GamesActions.load)
+    @Action(GamesActions.Load)
     public load(ctx: StateContext<GamesStateModel>) {
         ctx.setState(produce((draft) => {
             if (!draft.games['cfc57eb0-0659-4d8b-b76d-8f13c2e52457']) {
                 draft.games['cfc57eb0-0659-4d8b-b76d-8f13c2e52457'] = {
                     gameId: 'cfc57eb0-0659-4d8b-b76d-8f13c2e52457',
                     name: 'Tetris',
-                    genre: 'Geschicklichkeit',
+                    genre: 'Puzzle',
                     creationDate: moment().format(),
                     releaseDate: '1984-06-06',
-                    description: 'Tetris ist ein puzzleartiges Computerspiel des russischen Programmierers Alexei ' +
-                        'Paschitnow, der die erste spielbare Version am 6. Juni 1984 auf einem ' +
-                        ' Elektronika-60-Rechner fertigstellte.',
+                    description: 'Tetris is a tile-matching video game created by Russian software engineer Alexey ' +
+                        'Pajitnov in 1984 for the Electronika 60 computer. It has been published by several ' +
+                        'companies, most prominently during a dispute over the appropriation of the rights in the ' +
+                        'late 1980s.',
                     isFeatured: false
                 }
             }
@@ -57,20 +58,21 @@ export class GamesState {
                 draft.games['f5358325-7c2e-460e-b020-8e688368537e'] = {
                     gameId: 'f5358325-7c2e-460e-b020-8e688368537e',
                     name: 'Pac-Man',
-                    genre: 'Arcade',
+                    genre: 'Maze',
                     creationDate: moment().format(),
-                    releaseDate: '1980-05-22',
-                    description: 'Pac-Man ist ein Arcade- und Videospiel, welches erstmals am 22. Mai 1980 von Namco ' +
-                        'in Japan als „Puck Man“ für Arcade-Automaten veröffentlicht wurde. Es erschienen zahlreiche ' +
-                        ' Klone, Varianten und Weiterentwicklungen des Spiels für so gut wie alle Betriebssysteme.',
+                    releaseDate: '1980-06-01',
+                    description: 'Pac-Man is a maze action game developed and released by Namco for arcades in 1980. ' +
+                        'The original Japanese title of Puck Man was changed to Pac-Man for international releases ' +
+                        'as a preventative measure against defacement of the arcade machines by changing the P to ' +
+                        'an F.',
                     isFeatured: true
                 }
             }
         }));
     }
 
-    @Action(GamesActions.create)
-    public create(ctx: StateContext<GamesStateModel>, {command}: GamesActions.create) {
+    @Action(GamesActions.Create)
+    public create(ctx: StateContext<GamesStateModel>, {command}: GamesActions.Create) {
         ctx.setState(produce((draft) => {
             const gameId = uuid();
             draft.games[gameId] = {
@@ -85,8 +87,8 @@ export class GamesState {
         }));
     }
 
-    @Action(GamesActions.edit)
-    public edit(ctx: StateContext<GamesStateModel>, {command}: GamesActions.edit) {
+    @Action(GamesActions.Edit)
+    public edit(ctx: StateContext<GamesStateModel>, {command}: GamesActions.Edit) {
         ctx.setState(produce((draft) => {
             draft.games[command.gameId] = {
                 ...draft.games[command.gameId],
@@ -99,8 +101,8 @@ export class GamesState {
         }));
     }
 
-    @Action(GamesActions.remove)
-    public remove(ctx: StateContext<GamesStateModel>, {command}: GamesActions.remove) {
+    @Action(GamesActions.Delete)
+    public remove(ctx: StateContext<GamesStateModel>, {command}: GamesActions.Delete) {
         const state = ctx.getState();
         if (!state.games[command.gameId]) {
             throw new Error(`Game with id ${command.gameId} does not exist!`);

@@ -8,6 +8,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GamesState } from '../../store/games/games.state';
 import { Game } from '../../model/game';
 
+enum FormMode {
+    ADD = "ADD",
+    EDIT = "EDIT"
+}
+
 @Component({
     selector: 'app-game-form',
     templateUrl: './game-form.component.html',
@@ -15,7 +20,7 @@ import { Game } from '../../model/game';
 })
 export class GameFormComponent implements OnInit {
 
-    mode = 'add';
+    mode = FormMode.ADD;
     selectedGame: Game | null = null;
     gameForm!: FormGroup;
 
@@ -26,7 +31,7 @@ export class GameFormComponent implements OnInit {
     ngOnInit(): void {
         const params = this.activatedRoute.snapshot.params;
         if (params.gameId) {
-            this.mode = 'edit';
+            this.mode = FormMode.EDIT;
             this.selectedGame = this.store.selectSnapshot(GamesState.getGame(params.gameId));
         }
         this.initializeForm();
@@ -36,20 +41,22 @@ export class GameFormComponent implements OnInit {
         if (this.gameForm.valid) {
             let action;
             if (!this.selectedGame) {
-                const command = new GamesCommands.create(this.gameForm.controls.name.value,
+                const command = new GamesCommands.Create(this.gameForm.controls.name.value,
                     this.gameForm.controls.genre.value, this.gameForm.controls.description.value,
                     this.gameForm.controls.releaseDate.value, false);
-                action = new GamesActions.create(command);
+                action = new GamesActions.Create(command);
             } else {
-                const command = new GamesCommands.edit(this.selectedGame.gameId, this.gameForm.controls.name.value,
+                const command = new GamesCommands.Edit(this.selectedGame.gameId, this.gameForm.controls.name.value,
                     this.gameForm.controls.genre.value, this.gameForm.controls.description.value,
                     this.gameForm.controls.releaseDate.value, false);
-                action = new GamesActions.edit(command);
+                action = new GamesActions.Edit(command);
             }
+
             this.store.dispatch(action).subscribe(
                 () => this.router.navigateByUrl('/games'),
                 error => this.showError()
             );
+
         }
     }
 
@@ -66,5 +73,13 @@ export class GameFormComponent implements OnInit {
             description: new FormControl(this.selectedGame?.description,
                 [Validators.required, Validators.maxLength(500)])
         });
+    }
+
+    get isEditMode() {
+        return this.mode == FormMode.EDIT;
+    }
+
+    get isAddingMode() {
+        return this.mode == FormMode.ADD;
     }
 }

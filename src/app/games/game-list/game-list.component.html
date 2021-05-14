@@ -1,6 +1,6 @@
 <h1 fxLayout="row wrap">
     <span fxFlex>Your list of games</span>
-    <button fxFlex="nogrow" mat-fab color="primary" routerLink="create" matTooltip="Add a new Game">
+    <button fxFlex="nogrow" mat-fab color="primary" routerLink="Create" matTooltip="Add a new Game">
         <mat-icon>add</mat-icon>
     </button>
 </h1>
@@ -13,8 +13,8 @@
                 <p>{{game.description}}</p>
             </mat-card-content>
             <mat-card-actions fxLayout="row" fxLayoutGap="8px">
-                <a routerLink="{{game.gameId}}/edit" mat-flat-button color="primary">Edit</a>
-                <a mat-flat-button color="warn" (click)="removeGame(game)">Delete</a>
+                <a routerLink="{{game.gameId}}/Edit" mat-raised-button color="primary">Edit</a>
+                <button mat-raised-button color="warn" (click)="removeGame(game)">Delete</button>
             </mat-card-actions>
         </mat-card>
     </div>

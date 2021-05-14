@@ -11,7 +11,7 @@ describe('Games store', () => {
     store = TestBed.get(Store);
   }));
 
-  it('should create an action and add an item', () => {
+  it('should Create an action and add an item', () => {
     const expected: GamesStateModel = {
       items: ['item-1']
     };

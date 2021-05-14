@@ -31,7 +31,7 @@ const routes: Routes = [
                 component: GameInfoComponent
             },
             {
-                path: ':gameId/edit',
+                path: ':gameId/Edit',
                 component: GameFormComponent
             }
         ]

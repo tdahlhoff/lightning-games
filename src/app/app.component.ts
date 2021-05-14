@@ -11,6 +11,6 @@ export class AppComponent {
     title = 'lightning-games';
 
     constructor(private store: Store) {
-        store.dispatch(new GamesActions.load()).subscribe();
+        store.dispatch(new GamesActions.Load()).subscribe();
     }
 }

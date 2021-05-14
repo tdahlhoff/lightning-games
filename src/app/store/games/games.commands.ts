@@ -1,15 +1,15 @@
 export namespace GamesCommands {
-    export class create {
+    export class Create {
         constructor(public name: string, public genre: string, public description: string,
             public releaseDate: string, public isFeatured: boolean) {
         }
     }
-    export class edit {
+    export class Edit {
         constructor(public gameId: string, public name: string, public genre: string, public description: string,
             public releaseDate: string, public isFeatured: boolean) {
         }
     }
-    export class remove {
+    export class Remove {
         constructor(public gameId: string) {
         }
     }

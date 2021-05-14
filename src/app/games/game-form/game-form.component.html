@@ -1,10 +1,10 @@
 <h1>
-    <ng-container *ngIf="mode=='add'">Add Game</ng-container>
-    <ng-container *ngIf="mode=='edit'">Edit Game</ng-container>
+    <ng-container *ngIf="isAddingMode">Add Game</ng-container>
+    <ng-container *ngIf="isEditMode">Edit Game</ng-container>
 </h1>
 
-<p *ngIf="mode=='add'">Add a new game using this simple form.</p>
-<p *ngIf="mode=='edit'">Edit a game using this simple form.</p>
+<p *ngIf="isAddingMode">Add a new game using this simple form.</p>
+<p *ngIf="isEditMode">Edit a game using this simple form.</p>
 
 <form [formGroup]="gameForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap="16px">
 
@@ -38,7 +38,7 @@
 
     <div fxLayout="row" fxLayoutGap="16px">
         <button mat-raised-button type="submit" color="primary" [disabled]="gameForm.invalid">Save</button>
-        <a mat-raised-button routerLink=".." color="warn">Abort</a>
+        <a mat-raised-button routerLink="/games" color="warn">Abort</a>
     </div>
 
 </form>

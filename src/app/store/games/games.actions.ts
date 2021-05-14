@@ -1,31 +1,31 @@
 import { GamesCommands } from './games.commands';
 
 export namespace GamesActions {
-    export class load {
+    export class Load {
         public static readonly type = '[Games] Load';
 
         constructor() {
         }
     }
 
-    export class create {
+    export class Create {
         public static readonly type = '[Games] Create';
 
-        constructor(public command: GamesCommands.create) {
+        constructor(public command: GamesCommands.Create) {
         }
     }
 
-    export class edit {
+    export class Edit {
         public static readonly type = '[Games] Edit';
 
-        constructor(public command: GamesCommands.edit) {
+        constructor(public command: GamesCommands.Edit) {
         }
     }
 
-    export class remove {
-        public static readonly type = '[Games] Remove';
+    export class Delete {
+        public static readonly type = '[Games] Delete';
 
-        constructor(public command: GamesCommands.remove) {
+        constructor(public command: GamesCommands.Remove) {
         }
     }
 }

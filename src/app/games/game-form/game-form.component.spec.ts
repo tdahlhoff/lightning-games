@@ -19,7 +19,7 @@ describe('GameFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should Create', () => {
     expect(component).toBeTruthy();
   });
 });
